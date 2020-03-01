@@ -1,0 +1,22 @@
+# apiVersion: extensions/v1beta1
+
+### DaemonSet, Deployment, StatefulSet, 
+### and ReplicaSet resources will no longer be served from extensions/v1beta1, 
+### apps/v1beta1, or apps/v1beta2 by default in v1.16
+### 所以修改为 apiVersion: apps/v1
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
