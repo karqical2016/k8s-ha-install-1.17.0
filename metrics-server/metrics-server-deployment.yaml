@@ -38,11 +38,12 @@ spec:
       - name: metrics-server
         #image: dotbalo/metrics-server-amd64:v0.3.1
         image: registry.cn-hangzhou.aliyuncs.com/google_containers/metrics-server-amd64:v0.3.1
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command:
         - /metrics-server
         - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalIP
+        - --requestheader-client-ca-file=/front-proxy-ca.pem
         volumeMounts:
         - name: tmp-dir
           mountPath: /tmp

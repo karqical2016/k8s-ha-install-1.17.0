@@ -119,6 +119,7 @@ spec:
       containers:
       - name: kube-proxy
         image: registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy-amd64:v1.11.3
+        imagePullPolicy: IfNotPresent
         command:
         - /usr/local/bin/kube-proxy
         - --config=/var/lib/kube-proxy/config.conf

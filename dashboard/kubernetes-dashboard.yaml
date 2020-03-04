@@ -165,9 +165,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 443
-      targetPort: 8443
-      nodePort: 30000
+    - port: 443 # 供集群中其它container访问端口
+      targetPort: 8443 #转向后端pod中container暴露的端口
+      nodePort: 30000 #节点暴露的端口
   selector:
     k8s-app: kubernetes-dashboard
 
